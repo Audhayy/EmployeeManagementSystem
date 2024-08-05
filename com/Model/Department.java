@@ -16,10 +16,12 @@ import javax.persistence.ManyToMany;
 
 import com.Model.Employee;
 /**
+  *<p>
   *This is a class created to associate with employee and 
   *and has data members like department name,department id.
   *
-  *@author Audhithiyah
+  *@Author Audhithiyah
+  *</p>
   */
 
 @Entity
@@ -37,9 +39,6 @@ public class Department {
     
     private Set<Employee> employees;
     
-    
-    //private boolean softDelete;
-
     public Department() {}
 
     public Department(String departmentName,int departmentId) {

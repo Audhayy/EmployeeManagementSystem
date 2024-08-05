@@ -3,7 +3,10 @@ package com.Connection;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
+/**
+*<p>
+*This is a helper class to open a session a hibernate.
+*</p>
 public class HibernateManager {
     private static SessionFactory factory = null; 
 

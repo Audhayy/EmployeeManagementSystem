@@ -7,10 +7,12 @@ import com.passport.dao.PassportDaoImpl;
 
 public class PassportServiceImpl implements PassportService {
     PassportDao passportDao = new PassportDaoImpl();
-
+    
+    @Override
     public void addPassport(Passport passport) throws EmployeeException{
         passportDao.addPassport(passport);
     }
+    @Override
     public Passport getPassport(int id)throws EmployeeException {
         return passportDao.getPassport(id);
     }

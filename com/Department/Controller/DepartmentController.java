@@ -6,12 +6,16 @@ import com.Model.Department;
 import com.Department.Service.DepartmentServiceImpl;
 import com.customizedexception.EmployeeException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Scanner; 
 import java.util.List;
 import java.util.ArrayList;
 
 public class DepartmentController {
     DepartmentService departmentService = new DepartmentServiceImpl();
+    private static Logger logger = LogManager.getLogger();
     Scanner scanner = new Scanner(System.in);
     
 
@@ -59,9 +63,9 @@ public class DepartmentController {
                             String departmentName = scanner.nextLine();
 		            Department department = new Department(departmentName, id); 
                             departmentService.alterDepartment(department);
-                            System.out.println("Department Updated");  
+                            logger.info("Department Updated of name: "+ departmentName);  
                         } catch(EmployeeException e) {
-                            System.out.println("Could not update the employee details" + e.getMessage());
+                            logger.error("Could not update the employee details" + e.getMessage());
                     }
                     break;
                      
@@ -73,7 +77,7 @@ public class DepartmentController {
                         id =scanner.nextInt();
                         departmentService.removeDepartment(id);
                     } catch(EmployeeException e) {
-                        System.out.println("Unable to remove department" + id+e.getMessage());  
+                        logger.info("Unable to remove department" + id+e.getMessage());  
                     }
                     break;
                 case "6":
@@ -109,7 +113,7 @@ public class DepartmentController {
                 System.out.println(employee.getEmployeeName());
             }
         } catch(EmployeeException e){
-          System.out.println("unable to show employees in department:" +e.getMessage());
+          logger.error("unable to show employees in department:" +e.getMessage());
         } 
     }
 
@@ -119,8 +123,9 @@ public class DepartmentController {
              System.out.println("Enter the employee Department:");
              String departmentName = scanner.nextLine();
              departmentService.addDepartment(departmentName);
+             logger.info("department has been added sucesssfully of name" + departmentName);
          } catch (EmployeeException e) {
-             System.out.println(e.getMessage());
+             logger.error(e.getMessage());
          }
      }
 
@@ -140,10 +145,10 @@ public class DepartmentController {
                                     +"id: " +department.getDepartmentId());
             }
             else{
-                System.out.println("Department not Found");
+                logger.info("Department not Found");
             }
         } catch(EmployeeException e) {
-            System.out.println("unable to show department:" +e.getMessage());
+            logger.error("unable to show department:" +e.getMessage());
         }
          
     }
@@ -159,7 +164,7 @@ public class DepartmentController {
                                    "ID:" +department.getDepartmentId());
              }
          } catch(EmployeeException e) {
-             System.out.println("Could not fetch the department details" + e.getMessage());
+             logger.error("Could not fetch the department details" + e.getMessage());
          }
      }
 }  

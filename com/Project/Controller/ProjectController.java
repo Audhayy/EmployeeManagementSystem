@@ -6,23 +6,32 @@ import com.Model.Employee;
 import com.customizedexception.EmployeeException;
 import com.Model.Project;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Scanner; 
 import java.util.List;
 import java.util.ArrayList;
 
 /**
+*<p>
 * This class is used to get the 
-* choice of operation the user wants to perform
+* choice of operation the user wants to perform.
+*</p>
 */ 
 public class ProjectController {
     ProjectService projectService = new ProjectServiceImpl();
+    private static Logger logger = LogManager.getLogger();
     Scanner scanner = new Scanner(System.in);
     int id ;
 
-    /*Gets the Employee choice as string 
+    /**
+     *<p>
+     *Gets the Employee choice as string 
      *and performs corresponding operations in Project menu
      *It iterates till the flag breakout is true
-    */
+     *</p>
+     */
     public void projectChoice() {
     try {
         boolean bout = false;
@@ -73,9 +82,9 @@ public class ProjectController {
         }
     }
     catch (EmployeeException e) {
-	System.out.println("Invalid Choice Enter Correct Choice..");
+	logger.error("Invalid Choice Enter Correct Choice..");
     }
-    }
+}
 
     /**
      * <p>
@@ -93,9 +102,15 @@ public class ProjectController {
                  System.out.println(employee.getEmployeeName());
              }
          } catch(EmployeeException e) {
-             System.out.println("an error occured while displaying employees in project.." + e.getMessage());
+             logger.error("an error occured while displaying employees in project.." + e.getMessage());
          } 
      }
+
+     /**
+     *<p>
+     *insert project into the database
+     *</p>
+     */
      private void addProject() {
         try {
             scanner.nextLine();
@@ -105,14 +120,17 @@ public class ProjectController {
             int projectId = scanner.nextInt();
             scanner.nextLine();
             projectService.addProject(projectName);
+            logger.info("project has been added of name" +projectName);
          } catch(EmployeeException e) {
-                 System.out.println("error occured while inserting a project" + e.getMessage());
+                 logger.error("error occured while inserting a project" + e.getMessage());
          }
      }
 
    /**
+    *<p>
     *This method is used to a specific project 
     *detail with respect to its id
+    *</p>
     */
     public void displayProject() {
         try{
@@ -125,22 +143,23 @@ public class ProjectController {
                                "id: " +project.getProjectId());
             }
             else{
-                System.out.println("Project not Found");
+                logger.info("Project not Found");
             }
         } catch(EmployeeException e){
-            System.out.println("Could not display the project");
+            logger.error("Could not display the project");
         }
      }
 
-     /**
+    /**
+    *<p>
     *This method is used to a display all project 
-    *
+    *</p>
     */
      public List<Project> viewAllProject() {
          try{
              return projectService.displayAllProject();
          } catch(EmployeeException e) {
-             System.out.println("cannot display all the project");
+             logger.error("cannot display all the project");
          }
 	 return null;
      }  

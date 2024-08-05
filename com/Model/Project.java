@@ -17,10 +17,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
 
 /**
+ *<p>
  *This is a class created to associate with employee and 
  *projects and has data members like project name,project id.
  *
  *@author Audhithiyah
+ *</p>
  */
 
 @Entity

@@ -4,6 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+*<p>
+*This helper class is used to create and close connections.
+*</p>
+*/
 public class DatabaseConnection {
     static Connection connection;
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/managementsystem";
