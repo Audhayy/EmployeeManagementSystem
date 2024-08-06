@@ -1,35 +1,11 @@
-[INFO ] 2024-08-05 15:48:22.672 [main] Version - HHH000412: Hibernate ORM core version 5.6.0.Final
-[INFO ] 2024-08-05 15:48:23.078 [main] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-[WARN ] 2024-08-05 15:48:23.203 [main] pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-[INFO ] 2024-08-05 15:48:23.218 [main] pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employee_management]
-[INFO ] 2024-08-05 15:48:23.218 [main] pooling - HHH10001001: Connection properties: {user=root}
-[INFO ] 2024-08-05 15:48:23.218 [main] pooling - HHH10001003: Autocommit mode: false
-[INFO ] 2024-08-05 15:48:23.218 [main] DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
-[INFO ] 2024-08-05 15:48:23.453 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-[INFO ] 2024-08-05 15:48:24.047 [main] access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@261bd7b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-[INFO ] 2024-08-05 15:48:24.172 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-[INFO ] 2024-08-05 15:49:00.003 [main] EmployeeController - employee.getEmployeeName()has been added successfully
-[INFO ] 2024-08-05 15:51:20.864 [main] EmployeeController - employee.getEmployeeName()has been added successfully
-[INFO ] 2024-08-05 15:53:41.182 [main] Version - HHH000412: Hibernate ORM core version 5.6.0.Final
-[INFO ] 2024-08-05 15:53:41.526 [main] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-[WARN ] 2024-08-05 15:53:41.651 [main] pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-[INFO ] 2024-08-05 15:53:41.666 [main] pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employee_management]
-[INFO ] 2024-08-05 15:53:41.666 [main] pooling - HHH10001001: Connection properties: {user=root}
-[INFO ] 2024-08-05 15:53:41.666 [main] pooling - HHH10001003: Autocommit mode: false
-[INFO ] 2024-08-05 15:53:41.666 [main] DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
-[INFO ] 2024-08-05 15:53:41.854 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-[INFO ] 2024-08-05 15:53:42.463 [main] access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78a8978a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-[INFO ] 2024-08-05 15:53:42.572 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-[INFO ] 2024-08-05 15:54:34.417 [main] EmployeeController - ananyahas been added successfully
-[INFO ] 2024-08-05 17:00:51.478 [main] Version - HHH000412: Hibernate ORM core version 5.6.0.Final
-[INFO ] 2024-08-05 17:00:51.838 [main] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-[WARN ] 2024-08-05 17:00:51.963 [main] pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-[INFO ] 2024-08-05 17:00:51.978 [main] pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employee_management]
-[INFO ] 2024-08-05 17:00:51.978 [main] pooling - HHH10001001: Connection properties: {user=root}
-[INFO ] 2024-08-05 17:00:51.978 [main] pooling - HHH10001003: Autocommit mode: false
-[INFO ] 2024-08-05 17:00:51.994 [main] DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
-[INFO ] 2024-08-05 17:00:52.181 [main] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-[INFO ] 2024-08-05 17:00:52.791 [main] access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78a8978a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-[INFO ] 2024-08-05 17:00:52.900 [main] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-[INFO ] 2024-08-05 17:01:25.730 [main] EmployeeController - berlin has been added successfully
-[INFO ] 2024-08-05 17:01:50.761 [main] DepartmentController - department has been added sucesssfully of nameFront
+[INFO ] 2024-08-06 12:08:31.082 [ManagementSystem.main()] Version - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] 2024-08-06 12:08:32.521 [ManagementSystem.main()] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[WARN ] 2024-08-06 12:08:32.835 [ManagementSystem.main()] pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+[INFO ] 2024-08-06 12:08:32.852 [ManagementSystem.main()] pooling - HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/employee_management]
+[INFO ] 2024-08-06 12:08:32.852 [ManagementSystem.main()] pooling - HHH10001001: Connection properties: {user=root}
+[INFO ] 2024-08-06 12:08:32.852 [ManagementSystem.main()] pooling - HHH10001003: Autocommit mode: false
+[INFO ] 2024-08-06 12:08:32.874 [ManagementSystem.main()] DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+[INFO ] 2024-08-06 12:08:33.493 [ManagementSystem.main()] Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+[INFO ] 2024-08-06 12:08:35.449 [ManagementSystem.main()] access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4be0e6fc] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+[INFO ] 2024-08-06 12:08:35.685 [ManagementSystem.main()] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2024-08-06 12:09:50.897 [ManagementSystem.main()] EmployeeController - jeevithaa has been added successfully
