@@ -15,16 +15,10 @@ import com.ideas2it.customizedexception.EmployeeException;
     *</p>
     */
     public class DepartmentServiceImpl implements DepartmentService {
-    private DepartmentRepository departmentRepository = new DepartmentRepository();
+    private final DepartmentRepository departmentRepository = new DepartmentRepository();
     private EmployeeService employeeService;
 
-    public boolean departmentCorrection() {
-       if(departmentRepository.checkDepartment()){
-            return true;
-       } else {
-            return false;
-       }
-    }
+
     @Override
     public void addDepartment(String departmentName) throws EmployeeException{
         departmentRepository.insertDepartment(departmentName);

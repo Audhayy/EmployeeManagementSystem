@@ -1,18 +1,12 @@
 package com.ideas2it.Employee.Service;
 
 import java.util.List;
-import java.util.Scanner;
 import java.time.LocalDate;
 
 import com.ideas2it.Model.Department;
 import com.ideas2it.Model.Employee;
 import com.ideas2it.Employee.DAO.EmployeeRepository;
 import com.ideas2it.Employee.DAO.EmployeeRepositoryImpl;
-import com.ideas2it.Model.Project;
-import com.ideas2it.Project.Service.ProjectService;
-import com.ideas2it.Project.Service.ProjectServiceImpl;
-import com.ideas2it.Department.Service.DepartmentService;
-import com.ideas2it.Department.Service.DepartmentServiceImpl;
 import com.ideas2it.customizedexception.EmployeeException;
 import com.ideas2it.Model.Passport;
 import com.ideas2it.passport.service.PassportService;
@@ -21,9 +15,6 @@ import com.ideas2it.passport.service.PassportServiceImpl;
 public class EmployeeServiceImpl implements EmployeeService { 
     EmployeeRepository employeeRepository = new EmployeeRepositoryImpl();
     PassportService passportService = new PassportServiceImpl();
-    DepartmentService departmentService = new DepartmentServiceImpl();
-    ProjectService projectService = new ProjectServiceImpl();
-    private Scanner scanner= new Scanner(System.in);
    
     @Override
     public void addEmployee(String name, LocalDate DOB, int departmentId,
@@ -44,7 +35,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee displayEmployee(int id) throws EmployeeException {
         try {
-            if(employeeRepository.getEmployeeById(id).getsoftDelete()==false) {
+            if(!employeeRepository.getEmployeeById(id).getsoftDelete()) {
                 return employeeRepository.getEmployeeById(id);
             }
         } catch (Exception e) {
@@ -84,13 +75,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         }     
     }
 
-    @Override
-    public void insertToEmployee(Employee employee, Project project) throws EmployeeException {
-        projectService.employeeIntoProject(employee, project);
-    }  
+
     
-    @Override
-    public Department getDepartmentById(int departmentId) throws EmployeeException {
-        return departmentService.displayDepartment(departmentId);
-    }
+
 }

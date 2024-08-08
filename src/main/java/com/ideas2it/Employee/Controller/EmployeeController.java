@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -47,7 +46,7 @@ public class EmployeeController {
     */
     public void employeeChoice() {
         boolean breakOut = false;
-        while (breakOut == false) {
+        while (!breakOut) {
             System.out.println("===============Main Menu==================");            
             System.out.println("Please choose the appropriate option: ");
             System.out.println("=====================================");
@@ -91,7 +90,7 @@ public class EmployeeController {
                            logger.info("Employee not Found");
                        }
                    } catch(EmployeeException e) {
-                        logger.error("Could not fetch the employee details" + id + e.getMessage());
+                       logger.error("Could not fetch all the employee details{}{}", id, e.getMessage());
                    }
                    break;
 
@@ -100,12 +99,12 @@ public class EmployeeController {
                     try {
                         List<Employee> employeeDetails = new ArrayList<>(employeeService.displayAllEmployee());
                         System.out.println(employeeDetails);
-                        System.out.printf(("|%-5s |%-10s |%-15s |%-15s |%-10s |%-10s |%-15s | %-10s | %-20s |\n"), "ID", "Name",
+                        System.out.printf(("|%-5s |%-10s |%-15s |%-15s |%-10s |%-10s |%-15s | %-10s | %-20s | %-15s\n"), "ID", "Name",
                                           "Department Name", "PassportNumber", "CountryName", "Age",
                                           "Salary", "Phone Number", "Email", "Projects");
                         for (Employee employees : employeeService.displayAllEmployee()) {
                             System.out.println(employees);
-                            System.out.printf(("|%-5s |%-10s |%-15s |%-10s | %-15s |%-10s |%-15s | %-10s| %-20s |\n"), employees.getEmployeeId(),
+                            System.out.printf(("|%-5s |%-10s |%-15s |%-10s | %-15s |%-10s |%-15s | %-10s| %-20s | %-15s \n"), employees.getEmployeeId(),
                                                 employees.getEmployeeName(), employees.getDepartment().getDepartmentName(), 
                                                 employees.getPassport().getpassportNumber(),
                                                 employees.getPassport().getcountryName(),
@@ -113,8 +112,7 @@ public class EmployeeController {
                                                 employees.getPhoneNumber(), employees.getEmployeeEmail(), employees.getProjectNames());
                         }
                     } catch(EmployeeException e) {
-                        logger.error("Could not fetch the employee details" + e.getMessage());
-                        e.printStackTrace();
+                        logger.error("Could not fetch the employee details{}", e.getMessage());
                     }
                     break;
     
@@ -130,7 +128,7 @@ public class EmployeeController {
                     try {
                         employeeService.deleteEmployee(Id);
                     } catch(EmployeeException e) {
-                        logger.error("could not delete the employee with the id.."+ Id + e.getMessage()); 
+                        logger.error("could not delete the employee with the id..{}{}", Id, e.getMessage());
                     }
                     break;
                     
@@ -148,9 +146,9 @@ public class EmployeeController {
                     System.out.println("You chose project to add an employee to a project");
                     try {
                         insertProjectToEmployee();
-                        logger.info("project has been succesfully assigned to the employee");
+                        logger.info("project has been successfully assigned to the employee");
                     } catch(Exception e) {
-                        logger.error("could not insert project to employee.." + e.getMessage()); 
+                        logger.error("could not insert project to employee..{}", e.getMessage());
                     }
                     break;
                      
@@ -196,7 +194,7 @@ public class EmployeeController {
             scanner.nextLine();
             String emailAddress = scanner.nextLine();
             if (!EmployeeValidator.isValidEmail(emailAddress)) {
-                System.out.println("Invalid Email Adress please check");
+                System.out.println("Invalid Email Address please check");
                 return;
             }
             System.out.println("Please enter your Phone number");
@@ -215,12 +213,12 @@ public class EmployeeController {
             try {
                 employeeService.addEmployee(name, DOB, departmentId, salary,
                            emailAddress, phoneNum, department, passportNumber, countryName);
-                logger.info(name + " has been added successfully");
+                logger.info("{} has been added successfully", name);
 	    } catch (EmployeeException e) {
-		logger.error("Error while Adding Employee.." + e.getMessage());
+                logger.error("Error while Adding Employee..{}", e.getMessage());
 	    }
         } catch (Exception e) {
-             logger.error("Error: The employee list is not initialized." + e.getMessage());
+            logger.error("Error: The employee list is not initialized.{}", e.getMessage());
         }
     }
         
@@ -252,12 +250,12 @@ public class EmployeeController {
                 System.out.println("Enter new Salary: ");
                 employee.setEmployeeSalary(scanner.nextInt());
                 employeeService.updateEmployee(employee);
-                logger.info(id +"employee of this id has been updated successfully");
+                logger.info("{}employee of this id has been updated successfully", id);
             } else {
                 logger.info("ID not found");
             }
         } catch (EmployeeException e) {
-            logger.error("Error: The employee list is unmodified." + e.getMessage());
+            logger.error("Error: The employee list is unmodified.{}", e.getMessage());
         }
     }
 
@@ -276,10 +274,10 @@ public class EmployeeController {
             scanner.nextLine();
             Employee employee = employeeService.displayEmployee(employeeId);
             Project project = projectService.displayProject(projectId);
-            employeeService.insertToEmployee(employee, project);
+            projectService.employeeIntoProject(employee, project);
             logger.info("project added to employee successfully.");
         } catch (EmployeeException e) {
-            logger.error("unable to add this project for employee" + e.getMessage());
+            logger.error("unable to add this project for employee{}", e.getMessage());
         }
     }
        

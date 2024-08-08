@@ -1,9 +1,9 @@
 package com.ideas2it.Model;
 
-import java.util.ArrayList;
+
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.List;
+
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -16,13 +16,9 @@ import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
-import com.ideas2it.Model.Department;
-import com.ideas2it.Model.Passport;
-import com.ideas2it.Model.Project;
 
 /**
  *This is a class created to associate with Department and 
@@ -176,7 +172,7 @@ public class Employee {
     public String getProjectNames() {
         StringBuilder projects = new StringBuilder();
         for (Project project : projectList) {
-            projects.append(project.getProjectName() + ",");
+            projects.append(project.getProjectName()).append(",");
         }
         return projects.toString(); 
     }

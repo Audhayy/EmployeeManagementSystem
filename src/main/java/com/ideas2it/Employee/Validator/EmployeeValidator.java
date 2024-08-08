@@ -3,9 +3,6 @@ package com.ideas2it.Employee.Validator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ideas2it.Department.Service.DepartmentService;
-import com.ideas2it.Department.DAO.DepartmentRepository;
-
 public class EmployeeValidator{ 	
     public static boolean isValidUsername(String name) 
     { 

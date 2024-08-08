@@ -11,14 +11,14 @@ public interface PassportDao {
      /**
     *This method is used to insert passport details into the database 
     *@param passport - object of the class passport.
-    *@throws employeeexception
+    *@throws EmployeeException when unable to insert passport
     */
-    public void addPassport(Passport passport) throws EmployeeException;
+    void addPassport(Passport passport) throws EmployeeException;
 
     /**
     *This method is used to retrieve passport details from the database.
     *@param id - unique identifier of the class passport
-    *@throws employeeexception.
+    *@throws EmployeeException while unable extract passport details
     */
-    public Passport getPassport(int id)throws EmployeeException;
+    Passport getPassport(int id)throws EmployeeException;
 }

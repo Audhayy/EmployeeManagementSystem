@@ -11,14 +11,14 @@ public interface PassportService {
     /**
     *This method acts as mediator to dao to insert passport details into the database 
     *@param passport - object of the class passport.
-    *@throws employeeexception
+    *@throws EmployeeException when unable to insert a passport detail
     */
-    public void addPassport(Passport passport) throws EmployeeException;
+    void addPassport(Passport passport) throws EmployeeException;
    
     /**
     *This method acts as mediator to the dao to retrieve passport details from the database.
     *@param id - unique identifier of the class passport
-    *@throws employeeexception.
+    *@throws EmployeeException when unable to extract passport
     */
-    public Passport getPassport(int id)throws EmployeeException;
+    Passport getPassport(int id)throws EmployeeException;
 }

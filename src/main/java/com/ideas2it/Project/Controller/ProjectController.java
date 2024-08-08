@@ -21,7 +21,7 @@ import java.util.ArrayList;
 */ 
 public class ProjectController {
     ProjectService projectService = new ProjectServiceImpl();
-    private static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
     Scanner scanner = new Scanner(System.in);
     int id ;
 
@@ -35,7 +35,7 @@ public class ProjectController {
     public void projectChoice() {
     try {
         boolean bout = false;
-        while(bout == false) {
+        while(!bout) {
             System.out.println("=====================================");            
             System.out.println("Please choose the appropriate option: ");
             System.out.println("=====================================");
@@ -52,7 +52,7 @@ public class ProjectController {
 
             switch (choice) {
                 case "1":
-                    System.out.println("You chose the 'add dept' input");
+                    System.out.println("You chose the 'add project' input");
                     addProject();
                     break;
                 case "2": 
@@ -102,7 +102,7 @@ public class ProjectController {
                  System.out.println(employee.getEmployeeName());
              }
          } catch(EmployeeException e) {
-             logger.error("an error occured while displaying employees in project.." + e.getMessage());
+             logger.error("an error occurred while displaying employees in project..{}", e.getMessage());
          } 
      }
 
@@ -120,9 +120,9 @@ public class ProjectController {
             int projectId = scanner.nextInt();
             scanner.nextLine();
             projectService.addProject(projectName);
-            logger.info("project has been added of name" +projectName);
+            logger.info("project has been added of name{}", projectName);
          } catch(EmployeeException e) {
-                 logger.error("error occured while inserting a project" + e.getMessage());
+            logger.error("error occurred while inserting a project{}", e.getMessage());
          }
      }
 
@@ -150,19 +150,6 @@ public class ProjectController {
         }
      }
 
-    /**
-    *<p>
-    *This method is used to a display all project 
-    *</p>
-    */
-     public List<Project> viewAllProject() {
-         try{
-             return projectService.displayAllProject();
-         } catch(EmployeeException e) {
-             logger.error("cannot display all the project");
-         }
-	 return null;
-     }  
 }
   
 

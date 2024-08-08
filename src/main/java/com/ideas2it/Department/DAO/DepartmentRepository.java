@@ -1,6 +1,5 @@
 package com.ideas2it.Department.DAO;
 
-import org.hibernate.Hibernate;
 import org.hibernate.HibernateException; 
 import org.hibernate.Session; 
 import org.hibernate.Transaction;
@@ -9,13 +8,9 @@ import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+
 
 import com.ideas2it.Model.Department;
-import com.ideas2it.Model.Employee;
 import com.ideas2it.customizedexception.EmployeeException;
 import com.ideas2it.Connection.HibernateManager;
 
@@ -23,15 +18,6 @@ import com.ideas2it.Connection.HibernateManager;
  *by the user gets stored,retrieved and altered.
  */
 public class DepartmentRepository{
-    List<Department> departmentList = new ArrayList<>();
-
-        public boolean checkDepartment() { 
-        if(!departmentList.isEmpty()) {
-            return false;
-        }
-        else
-        return true;
-    }
 
    /*This method is used to add the department
     *details in the department list.
@@ -39,21 +25,18 @@ public class DepartmentRepository{
     *@throws EmployeeException throws while department details cannot be into the database
     */
     public void insertDepartment(String departmentName) throws EmployeeException{
-        Session session = HibernateManager.getFactory().openSession();
         Transaction transaction = null;
-        try {
+        try (Session session = HibernateManager.getFactory().openSession()) {
             transaction = session.beginTransaction();
             Department department = new Department(departmentName);
             Integer id = (Integer) session.save(department);
             transaction.commit();
         } catch (HibernateException e) {
-            if(transaction != null) {
+            if (transaction != null) {
                 transaction.rollback();
             }
-            throw new EmployeeException("Error while adding department of name : " + departmentName + e.getMessage(),e);
-        } finally {
-            session.close();
-        }    
+            throw new EmployeeException("Error while adding department of name : " + departmentName + e.getMessage(), e);
+        }
     }
 
    /**
@@ -63,10 +46,9 @@ public class DepartmentRepository{
     *@throws EmployeeException throws while department details cannot be retrieved the database
     */
     public Department getDepartmentById(int id) throws EmployeeException{
-       Session session = HibernateManager.getFactory().openSession();
         Transaction transaction = null;
         Department department = null;
-        try {
+        try (Session session = HibernateManager.getFactory().openSession()) {
             transaction = session.beginTransaction();
             department = session.get(Department.class, id);
             transaction.commit();
@@ -75,9 +57,7 @@ public class DepartmentRepository{
                 transaction.rollback();
             }
             throw new EmployeeException("Error while fetching department of id : " + id , e);
-        } finally {
-            session.close();
-        } 
+        }
         return department;
 
     }
@@ -88,10 +68,9 @@ public class DepartmentRepository{
     *@throws EmployeeException throws while all department details cannot be retrieved from the database
     */
     public List<Department> getAllDepartments() throws EmployeeException{
-       Session session = HibernateManager.getFactory().openSession();
         List<Department> departmentList = new ArrayList<>();
         Transaction transaction = null;
-        try {
+        try (Session session = HibernateManager.getFactory().openSession()){
             transaction = session.beginTransaction();
             Query<Department> query = session.createQuery("FROM Department", Department.class);
             departmentList = query.list();
@@ -100,8 +79,6 @@ public class DepartmentRepository{
                 transaction.rollback();
             }
             throw new EmployeeException("Error while fetching available departments : " ,e);
-        } finally {
-            session.close();
         }
         return departmentList;
 
@@ -115,20 +92,17 @@ public class DepartmentRepository{
     *@throws EmployeeException throws while department details cannot be updated the database
     */
     public void updateDepartment( Department department) throws EmployeeException {
-        Session session = HibernateManager.getFactory().openSession();
         Transaction transaction = null;
-        try {
+        try (Session session = HibernateManager.getFactory().openSession()) {
             transaction = session.beginTransaction();
             session.saveOrUpdate(department);
             transaction.commit();
         } catch (HibernateException e) {
-            if(transaction!= null) {
+            if (transaction != null) {
                 transaction.rollback();
-            } 
-            throw new EmployeeException("Error while updating the employee with id:" + department.getDepartmentId() ,e);
-        } finally {
-            session.close();
-        }    
+            }
+            throw new EmployeeException("Error while updating the employee with id:" + department.getDepartmentId(), e);
+        }
 
     }
 
@@ -139,22 +113,19 @@ public class DepartmentRepository{
     *@throws EmployeeException throws while department details cannot be deleted the database
     */
     public void deleteDepartment(int id) throws EmployeeException{
-        Session session = HibernateManager.getFactory().openSession();
         Transaction transaction = null;
-        try {
+        try (Session session = HibernateManager.getFactory().openSession()) {
             transaction = session.beginTransaction();
             Query<?> query = session.createQuery("DELETE FROM Department WHERE Departmentid = :id");
             query.setParameter("id", id);
-            query.executeUpdate();          
+            query.executeUpdate();
             transaction.commit();
         } catch (HibernateException e) {
-            
-            if(transaction != null) {
+
+            if (transaction != null) {
                 transaction.rollback();
             }
-            throw new EmployeeException("Error while deleting department of id : " + id,e);
-        } finally {
-            session.close();
+            throw new EmployeeException("Error while deleting department of id : " + id, e);
         }
 
     }

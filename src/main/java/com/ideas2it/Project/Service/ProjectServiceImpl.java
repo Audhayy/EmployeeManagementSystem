@@ -10,17 +10,10 @@ import com.ideas2it.customizedexception.EmployeeException;
 
 
 public class ProjectServiceImpl implements ProjectService {
-    private ProjectRepository projectRepository = new ProjectRepository();
+    private final ProjectRepository projectRepository = new ProjectRepository();
     private EmployeeService employeeService;
 
-    public boolean projectCorrection() {
-        if (projectRepository.checkProject()) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+
     @Override
     public void addProject(String projectName) throws EmployeeException {
         projectRepository.insertProject(projectName);
@@ -40,10 +33,7 @@ public class ProjectServiceImpl implements ProjectService {
     public Project idChecker(int id) throws EmployeeException {
         return projectRepository.getProjectById(id);
     }
-    @Override
-    public List<Employee> showAllEmployee() throws EmployeeException {
-        return employeeService.displayAllEmployee();
-    }
+
     @Override
     public void employeeIntoProject(Employee employee, Project project) throws EmployeeException {
         projectRepository.addEmployee(employee, project);

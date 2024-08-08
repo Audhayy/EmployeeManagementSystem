@@ -7,7 +7,7 @@ import com.ideas2it.customizedexception.EmployeeException;
 
 /**
  *This interface has abstract methods for employeerepositoryimpl
- * @Author Audhithiyah 
+ * @author Audhithiyah
  */
 public interface EmployeeRepository {
   
@@ -16,9 +16,9 @@ public interface EmployeeRepository {
      *This method is used to insert an employee detail into the database.
      *</p>
      *@param employee - objectof the employee class
-     *@throws EmployeeException
+     *@throws EmployeeException while inserting an employee
      */
-    public void addEmployee(Employee employee) throws EmployeeException;
+    void addEmployee(Employee employee) throws EmployeeException;
 
     /**
      *<p>
@@ -29,42 +29,42 @@ public interface EmployeeRepository {
      *@throws EmployeeException- when all the employees cannot be retrieved
      *</p>
      */
-     public List<Employee> getAllEmployees() throws EmployeeException;
+     List<Employee> getAllEmployees() throws EmployeeException;
 
    /**
     *<p>
     * This method is alters and changes the already stored data
     * in the database
     *
-    * @param - Employee object of the class Employee
+    * @param employee- Employee object of the class Employee
     *
     * @throws EmployeeException
     *</p> 
     */
-    public void updateEmployee(Employee employee) throws EmployeeException;
+    void updateEmployee(Employee employee) throws EmployeeException;
 
     /**
     *<p>
     * This method is gets the employee details of the corresponding id
     * in the database
     *
-    * @param - employeeId object of the class Employee
+    * @param  employeeId object of the class Employee
     *
     * @throws EmployeeException
     *</p> 
     */
-    public Employee getEmployeeById(int employeeId) throws EmployeeException;
+    Employee getEmployeeById(int employeeId) throws EmployeeException;
 
    /**
     *<p>
     * This method is removes the employee details of the corresponding id
     * in the database
     *
-    * @param - employeeId object of the class Employee
+    * @param id- employeeId object of the class Employee
     *
     * @throws EmployeeException 
     *</p>
     */
-    public void deleteEmployee(int id) throws EmployeeException;
+    void deleteEmployee(int id) throws EmployeeException;
 
 }

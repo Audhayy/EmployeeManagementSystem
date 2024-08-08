@@ -1,6 +1,6 @@
 package com.ideas2it.Model;
 
-import java.util.List;
+
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -10,17 +10,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.FetchType;
 import javax.persistence.Table;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToMany;
 
-import com.ideas2it.Model.Employee;
+import javax.persistence.OneToMany;
+
 /**
   *<p>
   *This is a class created to associate with employee and 
   *and has data members like department name,department id.
   *
-  *@Author Audhithiyah
+  *@author Audhithiyah
   *</p>
   */
 

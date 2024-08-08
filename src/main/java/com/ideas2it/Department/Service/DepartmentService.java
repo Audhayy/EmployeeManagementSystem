@@ -1,11 +1,7 @@
 package com.ideas2it.Department.Service;
 
 import java.util.List;
-import java.util.Scanner;
 
-import com.ideas2it.Department.DAO.DepartmentRepository;
-import com.ideas2it.Employee.Service.EmployeeService;
-import com.ideas2it.Model.Employee;
 import com.ideas2it.Model.Department;
 import com.ideas2it.customizedexception.EmployeeException;
 /**
@@ -18,46 +14,39 @@ public interface DepartmentService{
     *@param departmentName - name of the department to be added
     *@throws EmployeeException when there is an issue while adding a department
     */
-    public void addDepartment(String departmentName) throws EmployeeException;
+    void addDepartment(String departmentName) throws EmployeeException;
 
    /**
     *Method implemented in ServiceImpl for showing the department corresponding to the id.
-    *@param departmentid - id of the department the employee is in
-    *@throws employeeexception when theres an issue while displaying the deartment
+    *@param id - id of the department the employee is in
+    *@throws EmployeeException when there is an issue while displaying the department
     */
-    public Department displayDepartment(int id) throws EmployeeException;
+    Department displayDepartment(int id) throws EmployeeException;
 
    /**
     *Method implemented in ServiceImpl for showing all the departments available.
     */
-    public List<Department> displayAllDepartment() throws EmployeeException;
+    List<Department> displayAllDepartment() throws EmployeeException;
 
    /**
-    *Method implemented in ServiceImpl for removing an department from the records.
+    *Method implemented in ServiceImpl for removing a department from the records.
     *@param id - unique identifier of the department
-    *@throws employeeexception when cannot be deleted
+    *@throws EmployeeException when cannot be deleted
     */
-    public void removeDepartment(int id) throws EmployeeException;
+    void removeDepartment(int id) throws EmployeeException;
    /**
-    *Method implemented in ServiceImpl to check if the departmentid given by the employee
+    *Method implemented in ServiceImpl to check if the department id given by the employee
     *matches with the department id in the department.
     *@param id - unique identifier of the department
     *@throws EmployeeException while the id does cannot be fetched
     */
-    public Department idChecker(int id) throws EmployeeException;
-
-   /**
-    *Method implemented in ServiceImpl to get show the user that the department 
-    *has to be correctly given.
-    */ 
-    public boolean departmentCorrection();
+    Department idChecker(int id) throws EmployeeException;
 
    /**
     *Method implemented in ServiceImpl to get update the department details
-    *that has been previously given given.
+    *that has been previously given.
     *@param department - object of the class department
     *@throws EmployeeException when the department cannot be altered
     */ 
-    public void alterDepartment(Department department) throws EmployeeException;
-
+    void alterDepartment(Department department) throws EmployeeException;
 }   

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class DepartmentController {
     DepartmentService departmentService = new DepartmentServiceImpl();
-    private static Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger();
     Scanner scanner = new Scanner(System.in);
     
 
@@ -26,7 +26,7 @@ public class DepartmentController {
     */
     public void departmentChoice() {
         boolean bout = false;
-        while(bout == false) {
+        while(!bout) {
             System.out.println("=====================================");            
             System.out.println("Please choose the appropriate option: ");
             System.out.println("=====================================");
@@ -123,7 +123,7 @@ public class DepartmentController {
              System.out.println("Enter the employee Department:");
              String departmentName = scanner.nextLine();
              departmentService.addDepartment(departmentName);
-             logger.info("department has been added sucesssfully of name" + departmentName);
+             logger.info("department has been added sucesssfully of name{}", departmentName);
          } catch (EmployeeException e) {
              logger.error(e.getMessage());
          }
@@ -148,7 +148,7 @@ public class DepartmentController {
                 logger.info("Department not Found");
             }
         } catch(EmployeeException e) {
-            logger.error("unable to show department:" +e.getMessage());
+            logger.error("unable to show department:{}", e.getMessage());
         }
          
     }
@@ -164,7 +164,7 @@ public class DepartmentController {
                                    "ID:" +department.getDepartmentId());
              }
          } catch(EmployeeException e) {
-             logger.error("Could not fetch the department details" + e.getMessage());
+             logger.error("Could not fetch the department details{}", e.getMessage());
          }
      }
 }  
