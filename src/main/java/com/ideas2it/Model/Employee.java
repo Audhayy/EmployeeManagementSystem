@@ -3,7 +3,10 @@ package com.ideas2it.Model;
 
 import java.time.LocalDate;
 import java.time.Period;
+<<<<<<< HEAD:com/Model/Employee.java
+=======
 
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Model/Employee.java
 import java.util.Set;
 
 import javax.persistence.Column;

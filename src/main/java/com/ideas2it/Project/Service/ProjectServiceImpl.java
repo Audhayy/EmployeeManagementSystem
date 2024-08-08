@@ -13,7 +13,13 @@ public class ProjectServiceImpl implements ProjectService {
     private final ProjectRepository projectRepository = new ProjectRepository();
     private EmployeeService employeeService;
 
+<<<<<<< HEAD:com/Project/Service/ProjectServiceImpl.java
+    public boolean projectCorrection() {
+        return projectRepository.checkProject();
+    }
+=======
 
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Project/Service/ProjectServiceImpl.java
     @Override
     public void addProject(String projectName) throws EmployeeException {
         projectRepository.insertProject(projectName);

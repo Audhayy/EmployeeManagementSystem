@@ -1,6 +1,10 @@
 package com.ideas2it.Model;
 
 
+<<<<<<< HEAD:com/Model/Department.java
+
+=======
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Model/Department.java
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -10,9 +14,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.FetchType;
 import javax.persistence.Table;
+<<<<<<< HEAD:com/Model/Department.java
+import javax.persistence.OneToMany;
+=======
 
 import javax.persistence.OneToMany;
 
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Model/Department.java
 /**
   *<p>
   *This is a class created to associate with employee and 

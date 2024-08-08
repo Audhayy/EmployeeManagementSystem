@@ -15,6 +15,12 @@ import com.ideas2it.passport.service.PassportServiceImpl;
 public class EmployeeServiceImpl implements EmployeeService { 
     EmployeeRepository employeeRepository = new EmployeeRepositoryImpl();
     PassportService passportService = new PassportServiceImpl();
+<<<<<<< HEAD:com/Employee/Service/EmployeeServiceImpl.java
+    DepartmentService departmentService = new DepartmentServiceImpl();
+    ProjectService projectService = new ProjectServiceImpl();
+
+=======
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Employee/Service/EmployeeServiceImpl.java
    
     @Override
     public void addEmployee(String name, LocalDate DOB, int departmentId,

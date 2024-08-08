@@ -90,7 +90,11 @@ public class EmployeeController {
                            logger.info("Employee not Found");
                        }
                    } catch(EmployeeException e) {
+<<<<<<< HEAD:com/Employee/Controller/EmployeeController.java
+                       logger.error("Could not fetch the employee details{}{}", id, e.getMessage());
+=======
                        logger.error("Could not fetch all the employee details{}{}", id, e.getMessage());
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Employee/Controller/EmployeeController.java
                    }
                    break;
 
@@ -99,7 +103,11 @@ public class EmployeeController {
                     try {
                         List<Employee> employeeDetails = new ArrayList<>(employeeService.displayAllEmployee());
                         System.out.println(employeeDetails);
+<<<<<<< HEAD:com/Employee/Controller/EmployeeController.java
+                        System.out.printf(("|%-5s |%-10s |%-15s |%-15s |%-10s |%-10s |%-15s | %-10s | %-20s | %-15s \n"), "ID", "Name",
+=======
                         System.out.printf(("|%-5s |%-10s |%-15s |%-15s |%-10s |%-10s |%-15s | %-10s | %-20s | %-15s\n"), "ID", "Name",
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Employee/Controller/EmployeeController.java
                                           "Department Name", "PassportNumber", "CountryName", "Age",
                                           "Salary", "Phone Number", "Email", "Projects");
                         for (Employee employees : employeeService.displayAllEmployee()) {
@@ -112,7 +120,11 @@ public class EmployeeController {
                                                 employees.getPhoneNumber(), employees.getEmployeeEmail(), employees.getProjectNames());
                         }
                     } catch(EmployeeException e) {
+<<<<<<< HEAD:com/Employee/Controller/EmployeeController.java
+                        logger.error("Could not fetch all the employee details{}", e.getMessage());
+=======
                         logger.error("Could not fetch the employee details{}", e.getMessage());
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Employee/Controller/EmployeeController.java
                     }
                     break;
     

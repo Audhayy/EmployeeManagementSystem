@@ -1,15 +1,23 @@
 package com.ideas2it.Model;
 
 
+<<<<<<< HEAD:com/Model/Passport.java
+
+=======
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Model/Passport.java
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+<<<<<<< HEAD:com/Model/Passport.java
+import javax.persistence.Table;
+=======
 
 import javax.persistence.Table;
 
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Model/Passport.java
 /**
   *This is a class created to associate with employee
   *and has data members like passport name,passport id.

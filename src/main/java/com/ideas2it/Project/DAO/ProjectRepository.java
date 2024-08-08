@@ -8,6 +8,28 @@ import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD:com/Project/DAO/ProjectRepository.java
+import java.util.Set;
+
+import com.Model.Project;
+import com.Model.Employee;
+import com.customizedexception.EmployeeException;
+
+import com.Connection.HibernateManager; 
+
+/**
+ *This class acts as a Repository for performing data storage,retrieval and modifications.
+ *ArrayList is the collection that is used here
+ */
+public class ProjectRepository {
+    private static final List<Project> projectList = new ArrayList<>();
+    public boolean checkProject() {
+        return projectList.isEmpty();
+    }
+
+   /**
+    *This method is used to insert project into the database
+=======
 
 import java.util.Set;
 
@@ -22,6 +44,7 @@ import com.ideas2it.Connection.HibernateManager;
  */
 public class ProjectRepository {
    /**This method is used to insert project into  the database
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Project/DAO/ProjectRepository.java
     *@param name - name of the project employee is working in
     */    
     public void insertProject(String name)throws EmployeeException {
@@ -39,7 +62,39 @@ public class ProjectRepository {
         }
 
     }
+<<<<<<< HEAD:com/Project/DAO/ProjectRepository.java
+    
+   /**
+    *Employees present in a project given by the user id
+    *
+    *@param projectId - the unique identifier of the project
+    */      
+    public List<Employee> getEmployeesByProject(int projectId) throws EmployeeException {
+        Transaction transaction = null;
+        List<Employee> employeeList = null;
+        try (Session session = HibernateManager.getFactory().openSession()) {
+            transaction = session.beginTransaction();
+            String hql = "select project from Project project left join fetch project.employees where project.id = :projectId";
+            Project project = session.createQuery(hql, Project.class)
+                    .setParameter("id", projectId)
+                    .uniqueResult();
+            if (project != null) {
+                Hibernate.initialize(project.getEmployees());
+                employeeList = new ArrayList<>(project.getEmployees());
+            }
+            transaction.commit();
+        } catch (HibernateException e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            throw new EmployeeException("Error while getting employees of project id : " + projectId, e);
+        }
+        return employeeList;
+                    
+    }
+=======
 
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Project/DAO/ProjectRepository.java
    /**
     *Gets the project details from the id given by the user.
     *@param id - unique identifier of project.  
@@ -59,12 +114,20 @@ public class ProjectRepository {
                 transaction.rollback();
             }
             throw new EmployeeException("Error while get Project with id : " + id,e);
+<<<<<<< HEAD:com/Project/DAO/ProjectRepository.java
+        } finally {
+            if(null!= session) {
+                session.close();
+            }
+=======
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Project/DAO/ProjectRepository.java
         }
         return project;
 
     }
 
-   /**Gets all the project details  that are present in the database
+   /**
+    *Gets all the project details  that are present in the database
     *@throws EmployeeException if the project details are null;
     */ 
     public List<Project> getAllProjects() throws EmployeeException {
@@ -88,13 +151,17 @@ public class ProjectRepository {
         return projects;
     } 
 
-    /**Inserts an employee into projects 
+   /**
+    *Inserts an employee into projects 
     *@throws EmployeeException if the employee cannot be added into project.
     */    
     public void addEmployee(Employee employee, Project project) throws EmployeeException {
         Transaction transaction = null;
+<<<<<<< HEAD:com/Project/DAO/ProjectRepository.java
+=======
         Employee employeeObject;
         Project projectObject;
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Project/DAO/ProjectRepository.java
         try (Session session = HibernateManager.getFactory().openSession()) {
             transaction = session.beginTransaction();
             employeeObject = session.get(Employee.class, employee.getEmployeeId());
@@ -103,8 +170,13 @@ public class ProjectRepository {
             Set<Employee> employees = projectObject.getEmployees();
             projects.add(projectObject);
             employees.add(employeeObject);
+<<<<<<< HEAD:com/Project/DAO/ProjectRepository.java
+            session.saveOrUpdate(employeeObject);
+            session.saveOrUpdate(project);
+=======
             session.saveOrUpdate(projectObject);
             session.saveOrUpdate(employeeObject);
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Project/DAO/ProjectRepository.java
             transaction.commit();
         } catch (HibernateException e) {
             if (transaction != null) {

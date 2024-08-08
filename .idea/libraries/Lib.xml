@@ -1,0 +1,25 @@
+<component name="libraryTable">
+  <library name="Lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Lib/jboss-logging-3.3.2.Final (1).jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/hibernate-commons-annotations-5.1.2.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/antlr-2.7.7 (1).jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/jboss-transaction-api_1.2_spec-1.1.1.Final (1).jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/hibernate-jpa-2.1-api-1.0.2.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/mysql-connector-j-8.3.0 (1).jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/log4j-api-2.23.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/istack-commons-runtime-3.0.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/jaxb-impl-2.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/hibernate-core-5.6.0.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/classmate-1.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/dom4j-1.6.1 (1).jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/jaxb-api-2.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/activation-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/byte-buddy-1.10.22.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/javax.persistence-api-2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Lib/log4j-core-2.23.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

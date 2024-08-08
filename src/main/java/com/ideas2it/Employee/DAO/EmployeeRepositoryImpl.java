@@ -9,15 +9,31 @@ import org.hibernate.HibernateException;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+<<<<<<< HEAD:com/Employee/DAO/EmployeeRepositoryImpl.java
+import com.Model.Employee;
+import com.customizedexception.EmployeeException;
+import com.Connection.HibernateManager;
+=======
 import com.ideas2it.Model.Employee;
 import com.ideas2it.customizedexception.EmployeeException;
 import com.ideas2it.Connection.HibernateManager;
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Employee/DAO/EmployeeRepositoryImpl.java
 
 /**
  *<p>
  * This class is where the employee details are stored
  *operations such as retrieval and insertion are done here.
  *this class predominantly connects with employee service .
+<<<<<<< HEAD:com/Employee/DAO/EmployeeRepositoryImpl.java
+ * @author  Audhithiyah
+ *</p>
+ */
+public class EmployeeRepositoryImpl implements EmployeeRepository{
+    public void addEmployee(Employee employee) throws EmployeeException {
+        Transaction transaction = null;
+        try (Session session = HibernateManager.getFactory().openSession()) {
+
+=======
  * @author Audhithiyah
  *</p>
  */
@@ -26,6 +42,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository{
     public void addEmployee(Employee employee) throws EmployeeException {
         Transaction transaction = null;
         try (Session session = HibernateManager.getFactory().openSession()) {
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Employee/DAO/EmployeeRepositoryImpl.java
             transaction = session.beginTransaction();
             Integer id = (Integer) session.save(employee);
             transaction.commit();
@@ -51,6 +68,13 @@ public class EmployeeRepositoryImpl implements EmployeeRepository{
             }
             System.out.println(e.getMessage());
             throw new EmployeeException("Error while reading employee:",e);
+<<<<<<< HEAD:com/Employee/DAO/EmployeeRepositoryImpl.java
+        } finally {
+           if(null!= session) {
+               session.close();
+           }
+=======
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Employee/DAO/EmployeeRepositoryImpl.java
         }
         return employeeRecords;
     }
@@ -84,6 +108,13 @@ public class EmployeeRepositoryImpl implements EmployeeRepository{
                transaction.rollback(); 
            }
            throw new EmployeeException("Error while retrieving employees of department id:" +employeeId,e);
+<<<<<<< HEAD:com/Employee/DAO/EmployeeRepositoryImpl.java
+       } finally {
+           if(null!= session) {
+           session.close(); 
+           }     
+=======
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Employee/DAO/EmployeeRepositoryImpl.java
        }
        return employee;
     }

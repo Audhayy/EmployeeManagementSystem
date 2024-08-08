@@ -53,19 +53,19 @@ public class DepartmentController {
                     viewAllDepartment();
                     break;
                 case "4":
-                        int id = 0;
-                        try{
-                            System.out.println("You chose to update Department details");
-                            System.out.println("Enter Department ID to update: ");
-                            id = scanner.nextInt();
-                            scanner.nextLine();
-                            System.out.println("Enter new dept name: ");
-                            String departmentName = scanner.nextLine();
-		            Department department = new Department(departmentName, id); 
-                            departmentService.alterDepartment(department);
-                            logger.info("Department Updated of name: "+ departmentName);  
+                    int id = 0;
+                    try{
+                        System.out.println("You chose to update Department details");
+                        System.out.println("Enter Department ID to update: ");
+                        id = scanner.nextInt();
+                        scanner.nextLine();
+                        System.out.println("Enter new dept name: ");
+                        String departmentName = scanner.nextLine();
+                        Department department = new Department(departmentName, id);
+                        departmentService.alterDepartment(department);
+                        logger.info("Department Updated of name: {}", departmentName);
                         } catch(EmployeeException e) {
-                            logger.error("Could not update the employee details" + e.getMessage());
+                        logger.error("Could not update the employee details{}", e.getMessage());
                     }
                     break;
                      
@@ -77,7 +77,7 @@ public class DepartmentController {
                         id =scanner.nextInt();
                         departmentService.removeDepartment(id);
                     } catch(EmployeeException e) {
-                        logger.info("Unable to remove department" + id+e.getMessage());  
+                        logger.info("Unable to remove department{}{}", id, e.getMessage());
                     }
                     break;
                 case "6":
@@ -113,7 +113,7 @@ public class DepartmentController {
                 System.out.println(employee.getEmployeeName());
             }
         } catch(EmployeeException e){
-          logger.error("unable to show employees in department:" +e.getMessage());
+            logger.error("unable to show employees in department:{}", e.getMessage());
         } 
     }
 
@@ -123,7 +123,11 @@ public class DepartmentController {
              System.out.println("Enter the employee Department:");
              String departmentName = scanner.nextLine();
              departmentService.addDepartment(departmentName);
+<<<<<<< HEAD:com/Department/Controller/DepartmentController.java
+             logger.info("department has been added successfully of name{}", departmentName);
+=======
              logger.info("department has been added sucesssfully of name{}", departmentName);
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Department/Controller/DepartmentController.java
          } catch (EmployeeException e) {
              logger.error(e.getMessage());
          }

@@ -1,10 +1,24 @@
 package com.ideas2it.Model;
 
 
+<<<<<<< HEAD:com/Model/Project.java
+
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.FetchType;
+import javax.persistence.Table;
+import javax.persistence.ManyToMany;
+=======
 import java.util.Set;
 
 
 import javax.persistence.*;
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Model/Project.java
 
 /**
  *<p>

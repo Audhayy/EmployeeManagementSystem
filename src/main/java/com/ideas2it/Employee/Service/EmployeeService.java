@@ -1,11 +1,19 @@
 package com.ideas2it.Employee.Service;
 
+<<<<<<< HEAD:com/Employee/Service/EmployeeService.java
+import com.Model.Employee;
+import com.Model.Department;
+import com.Model.Project;
+import com.customizedexception.EmployeeException;
+
+=======
 
 import com.ideas2it.Model.Employee;
 import com.ideas2it.Model.Department;
 
 import com.ideas2it.customizedexception.EmployeeException;
 
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Employee/Service/EmployeeService.java
 import java.util.List;
 import java.time.LocalDate;
 
@@ -30,7 +38,11 @@ public interface EmployeeService{
     * @throws EmployeeException if an employee with that id is not found.
     *</p>
     */
+<<<<<<< HEAD:com/Employee/Service/EmployeeService.java
+   void addEmployee(String name, LocalDate DOB, int departmentId,
+=======
     void addEmployee(String name, LocalDate DOB, int departmentId,
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Employee/Service/EmployeeService.java
                             int Salary,String EmailAddress,
                             String PhoneNumber, Department department, int passportNumber, String countryName) throws EmployeeException;
    /**
@@ -66,6 +78,22 @@ public interface EmployeeService{
     *</p>
     */
     void updateEmployee(Employee employee) throws EmployeeException;
+<<<<<<< HEAD:com/Employee/Service/EmployeeService.java
+
+   /**
+    *<p>
+    *With the given id by the user fetch that id from the department 
+    *DAO and display the department details to the user
+    *
+    *@param departmentId -The unique identifier of a department
+    *@return department - object of class Department
+    *
+    *@throws EmployeeException if the id is not present.
+    *</p>
+    */
+    Department getDepartmentById(int departmentId) throws EmployeeException;
+=======
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Employee/Service/EmployeeService.java
     
    /**
     *<p>
@@ -77,7 +105,11 @@ public interface EmployeeService{
     *@throws EmployeeException if there is an issue while deleting the detail
     *</p>
     */
+<<<<<<< HEAD:com/Employee/Service/EmployeeService.java
+     void deleteEmployee(int id) throws EmployeeException;
+=======
     void deleteEmployee(int id) throws EmployeeException;
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Employee/Service/EmployeeService.java
 
    /**
     *<p>
@@ -89,5 +121,9 @@ public interface EmployeeService{
     *@throws EmployeeException is called when it cant be inserted.
     *</p>
     */
+<<<<<<< HEAD:com/Employee/Service/EmployeeService.java
+    void insertToEmployee(Employee employee, Project project) throws EmployeeException;
+=======
 
+>>>>>>> 35322006f735f3ef1ea8664ac2997cab61300cac:src/main/java/com/ideas2it/Employee/Service/EmployeeService.java
 }
